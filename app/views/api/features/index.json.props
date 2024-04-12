@@ -1,0 +1,28 @@
+json.data do
+  json.array! @features do |f|
+    json.id f[:id]
+    json.type f[:feature_type]
+    json.attributes {
+	json.external_id f[:record_id]
+	json.magnitude f[:mag].to_f
+	json.place f[:place]
+	json.time Time.at(0, f[:time], :millisecond).utc
+	json.tsunami !f[:tsunami].zero?
+	json.mag_type f[:mag_type]
+	json.title f[:title]
+	json.coordinates {
+		json.longitude f[:longitude].to_f
+		json.latitude f[:latitude].to_f
+	}
+	json.links {
+		json.external_url f[:url]
+	}
+    }
+  end
+end
+json.pagination {
+	json.current_page @pagy.page
+	json.total @pagy.last
+	json.per_page @pagy.items
+
+}

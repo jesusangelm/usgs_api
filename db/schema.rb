@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_04_08_183810) do
   create_table "features", force: :cascade do |t|
+    t.string "feature_type"
     t.decimal "mag"
     t.string "place", null: false
     t.integer "time", null: false

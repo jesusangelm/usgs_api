@@ -11,8 +11,6 @@ class Api::FeaturesController < ApplicationController
       features = params[:mag_type].presence ? Feature.by_mag_type(params[:mag_type]) : Feature.all
 
       @pagy, @features = pagy(features, items: params[:per_page])
-
-      render json: { data: @features, pagination: @pagy }
     end
   end
 

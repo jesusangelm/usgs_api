@@ -21,6 +21,7 @@ class UsgsClient
 
       {
         record_id: f['id'],
+        feature_type: f.dig('properties', 'type'),
         mag: f.dig('properties', 'mag'),
         place: f.dig('properties', 'place'),
         time: f.dig('properties', 'time'),

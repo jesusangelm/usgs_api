@@ -1,6 +1,7 @@
 class CreateFeatures < ActiveRecord::Migration[7.1]
   def change
     create_table :features do |t|
+      t.string :feature_type
       t.decimal :mag
       t.string :place, null: false
       t.integer :time, null: false

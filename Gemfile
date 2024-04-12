@@ -37,6 +37,7 @@ gem 'bootsnap', require: false
 
 gem 'httparty', '~> 0.21.0'
 gem 'pagy', '~> 8.1', '>= 8.1.1'
+gem 'props_template', '~> 0.33.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
