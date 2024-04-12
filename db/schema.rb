@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_08_183810) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_12_175557) do
+  create_table "comments", force: :cascade do |t|
+    t.text "body", null: false
+    t.integer "feature_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["feature_id"], name: "index_comments_on_feature_id"
+  end
+
   create_table "features", force: :cascade do |t|
     t.string "feature_type"
     t.decimal "mag"
@@ -31,4 +39,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_08_183810) do
     t.check_constraint "mag >= -1.0 AND mag <= 10.0", name: "mag_check"
   end
 
+  add_foreign_key "comments", "features"
 end
