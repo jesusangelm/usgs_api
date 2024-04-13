@@ -22,7 +22,7 @@ json.data do
 end
 json.pagination {
 	json.current_page @pagy.page
-	json.total @pagy.last
+	json.total @pagy.count
 	json.per_page @pagy.items
 
 }
